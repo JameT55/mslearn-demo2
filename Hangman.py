@@ -7,18 +7,24 @@ Created on Tue Oct  6 15:12:15 2020
 # Hangman
 # 
 import random
+guess_num = 1
+returnedword = ' '
+word = list(returnedword)
+result = [' ', ' ', ' ', ' ', ' ', ' ']
+found = bool()
+
 game_on = True
 marker = ' '
 position = ' '
 player1_turn = True
-board = 0
 
 
 
 
 
-def display_board(board):
-    if board == 1:
+
+def display_man(guess_num):
+    if guess_num == 1:
         print('-----------------')
         print('|          |')
         print('|          |')
@@ -36,9 +42,9 @@ def display_board(board):
         print('------------------')
         print('|                |')
         print('------------------')
-    
+        print(result)
 
-    if board == 2:
+    if guess_num == 2:
         print('-----------------')
         print('|          |')
         print('|          |')
@@ -56,8 +62,9 @@ def display_board(board):
         print('------------------')
         print('|                |')
         print('------------------')
+        print(result)
 
-    if board == 3:
+    if guess_num == 3:
         print('-----------------')
         print('|          |')
         print('|          |')
@@ -75,7 +82,7 @@ def display_board(board):
         print('|                |')
         print('------------------')
      
-    if board == 4:
+    if guess_num == 4:
         print('-----------------')
         print('|          |')
         print('|          |')
@@ -94,7 +101,7 @@ def display_board(board):
         print('|                |')
         print('------------------')
 
-    if board == 5:
+    if guess_num == 5:
         print('-----------------')
         print('|          |')
         print('|          |')
@@ -113,7 +120,7 @@ def display_board(board):
         print('|                |')
         print('------------------')    
 
-    if board == 6:
+    if guess_num == 6:
         print('-----------------')
         print('|          |')
         print('|          |')
@@ -132,7 +139,7 @@ def display_board(board):
         print('|                |')
         print('------------------')
 
-    if board == 7:
+    if guess_num == 7:
         print('-----------------')
         print('|          |')
         print('|          |')
@@ -151,6 +158,48 @@ def display_board(board):
         print('|                |')
         print('------------------')
 
+
+# Write a function that asks the player if they want to play again and returns a boolean True if they do want to play again.
+def make_a_guess():
+    found = False    
+    guess = input('Enter a letter to make a guess: ')
+    guess = guess.upper()
+    print(guess)
+    print(one)
+    print(two)
+    print(three)
+    print(four)
+    print(five)
+    print(six)
+    print(result)
+    if guess == one:
+        result[0] = one 
+        found = True   
+    if guess == two :
+        result[1] = two
+        found = True
+    if guess == three :
+        result[2] = three  
+        found = True  
+    if guess == four :
+        result[3] = four
+        found = True
+    if guess == five:
+        result[4] = five
+        found = True
+    if guess == six:
+        result[5] = six
+        found = True
+
+    
+    
+    if found == False:
+        print(guess_num)
+        guess_num += 1
+    return
+
+
+
 def player_input(marker):
     marker = ' '
     while marker not in ('X','O'):
@@ -158,51 +207,49 @@ def player_input(marker):
         marker = marker.upper()
     return marker   
     
-def place_marker(board, marker, position):
-    board[position] = marker
+def place_marker(man, marker, position):
+    man[position] = marker
 
 #Check if anyone won the game
-def win_check(board, mark):
+def win_check(man, mark):
     
-    if (board[1] == mark and board[2]== mark and board[3]==mark): 
+    if (man[1] == mark and man[2]== mark and man[3]==mark): 
         return True
-    elif (board[4] == mark and board[5]== mark and board[6]==mark): 
+    elif (man[4] == mark and man[5]== mark and man[6]==mark): 
         return True
-    elif (board[7] == mark and board[8]== mark and board[9]==mark): 
+    elif (man[7] == mark and man[8]== mark and man[9]==mark): 
         return True
-    elif (board[1] == mark and board[4]== mark and board[7]==mark): 
+    elif (man[1] == mark and man[4]== mark and man[7]==mark): 
         return True
-    elif (board[2] == mark and board[5]== mark and board[8]==mark):
+    elif (man[2] == mark and man[5]== mark and man[8]==mark):
         return True
-    elif (board[3] == mark and board[6]== mark and board[9]==mark):
+    elif (man[3] == mark and man[6]== mark and man[9]==mark):
         return True
-    elif (board[1] == mark and board[5]== mark and board[9]==mark):
+    elif (man[1] == mark and man[5]== mark and man[9]==mark):
         return True
-    elif (board[3] == mark and board[5]== mark and board[7]==mark):
+    elif (man[3] == mark and man[5]== mark and man[7]==mark):
         return True
     else:
         return False
 
-# Which player goes first 1 or 2 ?
-def choose_first():
-    return random.randint(1,2)
+
 
 # Return True if a space on the board is freely available.
-def space_check(board, position):
-    return board[position] == ' '
+def space_check(man, position):
+    return man[position] == ' '
 
 
 # function that checks if the board is full and returns a boolean value. True if full, False otherwise.
-def full_board_check(board):
+def full_man_check(man):
     
-    return board[1] != ' ' and board[2] != ' ' and board[3] != ' ' and board[4] != ' ' and board[5] != ' ' and board[6] != ' ' and board[7] != ' ' and board[8] != ' ' and board[9] != ' '
+    return man[1] != ' ' and man[2] != ' ' and man[3] != ' ' and man[4] != ' ' and man[5] != ' ' and man[6] != ' ' and man[7] != ' ' and man[8] != ' ' and man[9] != ' '
  
 
 
 
 # function that asks for a player's next position (as a number 1-9) 
 # and then uses the function from step 6 to check if it's a free position. If it is, then return the position for later use.
-def player_choice(board):
+def player_choice(man):
          #Initial
     space_ok = False    
     choice = 'WRONG'
@@ -229,7 +276,7 @@ def player_choice(board):
         # SPACE AVAILABLE CHECK
         if choice.isdigit() == True:            
             if within_range == True:
-                space_ok = space_check(board,int(choice))
+                space_ok = space_check(man,int(choice))
                 #print(f'space_ok: {space_ok}')
           
                     
@@ -254,21 +301,41 @@ def replay():
 print('Welcome to Hang Man!')
 
 while True:
+
     
-    
-    display_board(board)
-    board += 1
+    if guess_num == 1:
+        # Choose a word...
+        mylist = ["APPLES", "ORANGE", "BANANA" ]
+        returnedword = (random.choice(mylist))
+        word = str(returnedword)
+        
+
+        wordList = [letter for letter in word]
+        one, two, three, four, five, six = wordList
+
+    display_man(guess_num)
+    make_a_guess()
+    #guess_num += 1
      
-  
-
-
-   
-                  
+                   
             
-    if board >= 8:
+    if guess_num >= 7:
         print("You lose sucker!")
+        print(f'The word was: {returnedword}')
         break
           
             
-   
+    #x = str("Hello" "World")
+    #print(x[1])
+    # prints e
 
+    #==========================================================
+#fruit_list = ['apple', 'orange', 'peach', 'pear', 'plum']
+
+#x = fruit_list[0]
+
+       
+#wordList = [ch for ch in x]
+#one, two, three, four, five = wordList
+#print(str(one))
+#print(str(two))
