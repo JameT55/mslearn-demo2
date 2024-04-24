@@ -7,10 +7,10 @@ Created on Tue Oct  6 15:12:15 2020
 # Hangman
 # 
 import random
-guess_num = 0
+guess_num = 1
 returnedword = ' '
-word = str(returnedword)
-result = str()
+word = list(returnedword)
+result = [' ', ' ', ' ', ' ', ' ', ' ']
 found = bool()
 
 game_on = True
@@ -164,36 +164,38 @@ def make_a_guess():
     found = False    
     guess = input('Enter a letter to make a guess: ')
     guess = guess.upper()
-    if guess == word[0] :
-        result[0] = word[0] 
+    print(guess)
+    print(one)
+    print(two)
+    print(three)
+    print(four)
+    print(five)
+    print(six)
+    print(result)
+    if guess == one:
+        result[0] = one 
         found = True   
-    elif guess == word[1] :
-        result[0] = word[1]
+    if guess == two :
+        result[1] = two
         found = True
-    elif guess == word[2] :
-        result[0] = word[2]    
+    if guess == three :
+        result[2] = three  
         found = True  
-    elif guess == word[3] :
-        result[0] = word[3]
+    if guess == four :
+        result[3] = four
         found = True
-    elif guess == word[4] :
-        result[0] = word[4]
+    if guess == five:
+        result[4] = five
         found = True
-    elif guess == word[5] :
-        result[0] = word[5]
+    if guess == six:
+        result[5] = six
         found = True
-    elif guess == word[6] :
-        result[0] = word[6]
-        found = True
-    elif guess == word[7] :
-        result[0] = word[7]
-        found = True
-    elif guess == word[8] :
-        result[0] = word[8]
-        found = True
-    else:
-        if found == False:
-            guess_num += 1
+
+    
+    
+    if found == False:
+        print(guess_num)
+        guess_num += 1
     return
 
 
@@ -301,13 +303,15 @@ print('Welcome to Hang Man!')
 while True:
 
     
-    if guess_num == 0:
+    if guess_num == 1:
         # Choose a word...
-        mylist = ["APPLE", "ORANGE", "BANANA" ]
+        mylist = ["APPLES", "ORANGE", "BANANA" ]
         returnedword = (random.choice(mylist))
         word = str(returnedword)
-        print(word[1])
         
+
+        wordList = [letter for letter in word]
+        one, two, three, four, five, six = wordList
 
     display_man(guess_num)
     make_a_guess()
@@ -315,7 +319,7 @@ while True:
      
                    
             
-    if guess_num >= 8:
+    if guess_num >= 7:
         print("You lose sucker!")
         print(f'The word was: {returnedword}')
         break
@@ -325,3 +329,13 @@ while True:
     #print(x[1])
     # prints e
 
+    #==========================================================
+#fruit_list = ['apple', 'orange', 'peach', 'pear', 'plum']
+
+#x = fruit_list[0]
+
+       
+#wordList = [ch for ch in x]
+#one, two, three, four, five = wordList
+#print(str(one))
+#print(str(two))
