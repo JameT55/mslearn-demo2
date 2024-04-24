@@ -14,7 +14,7 @@ result = [' ', ' ', ' ', ' ', ' ', ' ']
 found = bool()
 
 game_on = True
-marker = ' '
+marker = '2'
 position = ' '
 player1_turn = True
 
