@@ -17,6 +17,7 @@ returnedWord = ' '
 word = list()
 result = list()
 letter_found = bool()
+
 guess_num = 0
 bad_guess_num = 0
 one = ' '
@@ -53,9 +54,9 @@ def display_man(bad_guess_num):
         print('|')
         print('|')
         print('|')
-        print('------------------')
-        print('|                |')
-        print('------------------')
+        print('----------------------')
+        print('|                    |')
+        print('----------------------')
         print(result)
 
     if bad_guess_num == 1:
@@ -64,8 +65,8 @@ def display_man(bad_guess_num):
         print('|          |')
         print('|          |')
         print('|        --|--')
-        print('|       |(0 0)|')
-        print('|       |  -  |')
+        print('|       |(- -)|')
+        print('|       |  =  |')
         print('|        -----')
         print('|')
         print('|')
@@ -74,9 +75,9 @@ def display_man(bad_guess_num):
         print('|')
         print('|')
         print('|')
-        print('------------------')
-        print('|                |')
-        print('------------------')
+        print('----------------------')
+        print('|                    |')
+        print('----------------------')
         print(result)
 
     if bad_guess_num == 2:
@@ -85,8 +86,8 @@ def display_man(bad_guess_num):
         print('|          |')
         print('|          |')
         print('|        --|--')
-        print('|       |(0 0)|')
-        print('|       |  O  |')
+        print('|       |(- 0)|')
+        print('|       |  =  |')
         print('|        -----')
         print('|        /   \ ')
         print('|        |   |')
@@ -94,9 +95,9 @@ def display_man(bad_guess_num):
         print('|        -----')
         print('|')
         print('|')
-        print('------------------')
-        print('|                |')
-        print('------------------')
+        print('----------------------')
+        print('|                    |')
+        print('----------------------')
      
     if bad_guess_num == 3:
         print('-----------------')
@@ -105,7 +106,7 @@ def display_man(bad_guess_num):
         print('|          |')
         print('|        --|--')
         print('|       |(0 0)|')
-        print('|       |  -  |')
+        print('|       |  =  |')
         print('|        -----')
         print('|        /   \________')
         print('|        |   |--------')
@@ -114,9 +115,9 @@ def display_man(bad_guess_num):
         print('|')
         print('|')
         print('|')
-        print('------------------')
-        print('|                |')
-        print('------------------')
+        print('----------------------')
+        print('|                    |')
+        print('----------------------')
 
     if bad_guess_num == 4:
         print('-----------------')
@@ -125,7 +126,7 @@ def display_man(bad_guess_num):
         print('|          |')
         print('|        --|--')
         print('|       |(0 0)|')
-        print('|       |  -  |')
+        print('|       |  =  |')
         print('|        -----')
         print('|  ______/   \________')
         print('|  ------|   |--------')
@@ -134,9 +135,9 @@ def display_man(bad_guess_num):
         print('|')
         print('|')
         print('|')
-        print('------------------')
-        print('|                |')
-        print('------------------')    
+        print('----------------------')
+        print('|                    |')
+        print('----------------------')    
 
     if bad_guess_num == 5:
         print('-----------------')
@@ -144,7 +145,7 @@ def display_man(bad_guess_num):
         print('|          |')
         print('|          |')
         print('|        --|--')
-        print('|       |(0 0)|')
+        print('|       |(O O)|')
         print('|       |  O  |')
         print('|        -----')
         print('|  ______/   \________')
@@ -154,9 +155,9 @@ def display_man(bad_guess_num):
         print('|            \ \     ')
         print('|             \ \__       ')
         print('|              |___|')
-        print('------------------')
-        print('|                |')
-        print('------------------')
+        print('----------------------')
+        print('|                    |')
+        print('----------------------')
 
     if bad_guess_num == 6:
         print('-----------------')
@@ -174,9 +175,11 @@ def display_man(bad_guess_num):
         print('|       / /  \ \     ')
         print('|    __/ /    \ \__       ')
         print('|    |___|     |___|')
-        print('------------------')
-        print('|                |')
-        print('------------------')
+        print('|')
+        print('|')
+        print('----------------------')
+        print('|                    |')
+        print('----------------------')
 
 
 # Write a function that asks the player if they want to play again and returns a boolean True if they do want to play again.
@@ -264,7 +267,7 @@ while True:
 
     
     if guess_num == 0:
-        # Choose a word...
+        # Choose a word... 
         myList = ["APPLE", "PEACH", "PEAR", "PLUM", "BANANA", "ORANGE"]
         returnedWord = (random.choice(myList))
         word = str(returnedWord)
@@ -306,7 +309,7 @@ while True:
                    
             
     if  bad_guess_num >= 6:
-        print("Stretch his neck boys!")
+        print("        Stretch his neck boys!")
         print(f'The word was: {returnedWord}')
         break
           
