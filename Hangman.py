@@ -3,6 +3,7 @@
 Created on Tue Oct  6 15:12:15 2020
 
 @author: James.Thomas
+new change
 """
 # Hangman
 # 
@@ -23,7 +24,7 @@ three = ' '
 four = ' '
 five = ' '
 six = ' '
-
+seven = ' '
 guess_num = 0
 bad_guess_num = 0
 
