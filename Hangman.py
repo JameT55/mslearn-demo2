@@ -9,15 +9,16 @@ new change
 # 
 import random
 
-mylist = list()
+myList = list()
 guess_num = int()
 bad_guess_num = int()
-wordlength = int()
-returnedword = ' '
+wordLength = int()
+returnedWord = ' '
 word = list()
-result = [' ', ' ', ' ', ' ', ' ', ' ']
+result = list()
 letter_found = bool()
-
+guess_num = 0
+bad_guess_num = 0
 one = ' '
 two = ' '
 three = ' '
@@ -25,8 +26,10 @@ four = ' '
 five = ' '
 six = ' '
 seven = ' '
-guess_num = 0
-bad_guess_num = 0
+eight = ' '
+nine = ' '
+ten = ' '
+
 
 
 
@@ -35,6 +38,7 @@ bad_guess_num = 0
 def display_man(bad_guess_num):
     
     if bad_guess_num == 0:
+        print('-----------------')
         print('-----------------')
         print('|          |')
         print('|          |')
@@ -56,6 +60,7 @@ def display_man(bad_guess_num):
 
     if bad_guess_num == 1:
         print('-----------------')
+        print('-----------------')
         print('|          |')
         print('|          |')
         print('|        --|--')
@@ -76,11 +81,12 @@ def display_man(bad_guess_num):
 
     if bad_guess_num == 2:
         print('-----------------')
+        print('-----------------')
         print('|          |')
         print('|          |')
         print('|        --|--')
         print('|       |(0 0)|')
-        print('|       |  -  |')
+        print('|       |  O  |')
         print('|        -----')
         print('|        /   \ ')
         print('|        |   |')
@@ -93,6 +99,7 @@ def display_man(bad_guess_num):
         print('------------------')
      
     if bad_guess_num == 3:
+        print('-----------------')
         print('-----------------')
         print('|          |')
         print('|          |')
@@ -113,6 +120,7 @@ def display_man(bad_guess_num):
 
     if bad_guess_num == 4:
         print('-----------------')
+        print('-----------------')
         print('|          |')
         print('|          |')
         print('|        --|--')
@@ -132,11 +140,12 @@ def display_man(bad_guess_num):
 
     if bad_guess_num == 5:
         print('-----------------')
+        print('-----------------')
         print('|          |')
         print('|          |')
         print('|        --|--')
         print('|       |(0 0)|')
-        print('|       |  -  |')
+        print('|       |  O  |')
         print('|        -----')
         print('|  ______/   \________')
         print('|  ------|   |--------')
@@ -151,10 +160,11 @@ def display_man(bad_guess_num):
 
     if bad_guess_num == 6:
         print('-----------------')
+        print('-----------------')
         print('|          |')
         print('|          |')
         print('|        --|--')
-        print('|       |(0 0)|')
+        print('|       |(X X)|')
         print('|       |  -  |')
         print('|        -----')
         print('|  ______/   \________')
@@ -210,6 +220,29 @@ def make_a_guess():
         guess_num += 1  
         letter_found = True
 
+    
+    if guess == seven:
+        result[6] = seven
+        guess_num += 1  
+        letter_found = True
+
+    
+    if guess == eight:
+        result[7] = eight
+        guess_num += 1  
+        letter_found = True
+
+        
+    if guess == nine:
+        result[8] = nine
+        guess_num += 1  
+        letter_found = True
+
+        
+    if guess == ten:
+        result[9] = ten
+        guess_num += 1  
+        letter_found = True
 
     if letter_found == False:
         bad_guess_num += 1
@@ -232,29 +265,49 @@ while True:
     
     if guess_num == 0:
         # Choose a word...
-        mylist = ["APPLES", "ORANGE", "BANANA" ]
-        returnedword = (random.choice(mylist))
-        word = str(returnedword)
-        wordlength = len(word)
+        myList = ["APPLE", "PEACH", "PEAR", "PLUM", "BANANA", "ORANGE"]
+        returnedWord = (random.choice(myList))
+        word = str(returnedWord)
+        wordLength = len(word)
         
-
         wordList = [letter for letter in word]
-        one, two, three, four, five, six = wordList
 
-    display_man(bad_guess_num)
+        if wordLength == 4:
+            one, two, three, four = wordList
+            result = [' ',' ', ' ', ' ']
+        if wordLength == 5:
+            one, two, three, four, five = wordList
+            result = [' ',' ', ' ', ' ', ' ']
+        if wordLength == 6:
+            one, two, three, four, five, six = wordList
+            result = [' ',' ', ' ', ' ', ' ', ' ']
+        if wordLength == 7:
+            one, two, three, four, five, six, seven = wordList
+            result = [' ',' ', ' ', ' ', ' ', ' ', ' ']
+        if wordLength == 8:
+            one, two, three, four, five, six, seven, eight = wordList
+            result = [' ',' ', ' ', ' ', ' ', ' ', ' ', ' ']    
+        if wordLength == 9:
+            one, two, three, four, five, six, seven, eight, nine = wordList
+            result = [' ',' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '] 
+        if wordLength == 10:
+            one, two, three, four, five, six, seven, eight, nine, ten = wordList
+            result = [' ',' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '] 
+
+        display_man(bad_guess_num)
+
     make_a_guess()
-   
+    display_man(bad_guess_num)
      
     
-    if wordlength == guess_num:
+    if wordLength == guess_num:
         print("You Win!")
         break
                    
             
-    if  guess_num >= wordlength:
+    if  bad_guess_num >= 6:
         print("Stretch his neck boys!")
-        print(f'The word was: {returnedword}')
-        print(word)
+        print(f'The word was: {returnedWord}')
         break
           
             
