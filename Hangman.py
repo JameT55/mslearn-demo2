@@ -15,7 +15,8 @@ wordlength = int()
 returnedword = ' '
 word = list()
 result = [' ', ' ', ' ', ' ', ' ', ' ']
-found = bool()
+letter_found = bool()
+
 one = ' '
 two = ' '
 three = ' '
@@ -171,40 +172,49 @@ def display_man(bad_guess_num):
 def make_a_guess():
     global guess_num
     global bad_guess_num
-    found = False    
+    global letter_found 
+    letter_found = False
+
     guess = input('Enter a letter to make a guess: ')
     guess = guess.upper()
-    #print(global guess_num)
-    print(guess)
-    print(one)
-    print(two)
-    print(three)
-    print(four)
-    print(five)
-    print(six)
-    print(result)
-    
+   
+
     if guess == one:
         result[0] = one 
         guess_num += 1  
+        letter_found = True
+
     if guess == two :
         result[1] = two
-        guess_num += 1  
+        guess_num += 1 
+        letter_found = True 
+
     if guess == three :
         result[2] = three  
         guess_num += 1   
+        letter_found = True
+
     if guess == four :
         result[3] = four
         guess_num += 1  
+        letter_found = True
+
     if guess == five:
         result[4] = five
         guess_num += 1  
+        letter_found = True
+
     if guess == six:
         result[5] = six
         guess_num += 1  
-    else:
+        letter_found = True
+
+
+    if letter_found == False:
         bad_guess_num += 1
 
+
+    print(result)
     return
 
 
@@ -230,12 +240,12 @@ while True:
         wordList = [letter for letter in word]
         one, two, three, four, five, six = wordList
 
-    display_man(guess_num)
+    display_man(bad_guess_num)
     make_a_guess()
    
      
     
-    if found == True and wordlength == guess_num:
+    if wordlength == guess_num:
         print("You Win!")
         break
                    
