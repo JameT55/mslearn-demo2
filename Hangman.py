@@ -3,38 +3,43 @@
 Created on Tue Oct  6 15:12:15 2020
 
 @author: James.Thomas
-new change
+Hangman game
+
 """
-# Hangman
-# 
+
+
 import random
 
+#-----------------------------
+# Working Storage
+#-----------------------------
+firstTime = bool(True)
 myList = list()
-guess_num = int()
-bad_guess_num = int()
+good_guess_num = int(0)
+bad_guess_num = int(0)
 wordLength = int()
-returnedWord = ' '
+randomWord = ' '
 word = list()
 result = list()
 letter_found = bool()
 
-guess_num = 0
-bad_guess_num = 0
-one = ' '
-two = ' '
-three = ' '
-four = ' '
-five = ' '
-six = ' '
-seven = ' '
-eight = ' '
-nine = ' '
-ten = ' '
+
+one = str(' ')
+two = str(' ')
+three = str(' ')
+four = str(' ')
+five = str(' ')
+six = str(' ')
+seven = str(' ')
+eight = str(' ')
+nine = str(' ')
+ten = str(' ')
 
 
 
-
-
+#--------------------------------------
+# Function: to display the graphic
+#--------------------------------------
 
 def display_man(bad_guess_num):
     
@@ -181,10 +186,11 @@ def display_man(bad_guess_num):
         print('|                    |')
         print('----------------------')
 
-
-# Write a function that asks the player if they want to play again and returns a boolean True if they do want to play again.
+#---------------------------------------
+# Function: Make a Guess
+#---------------------------------------
 def make_a_guess():
-    global guess_num
+    global good_guess_num
     global bad_guess_num
     global letter_found 
     letter_found = False
@@ -195,56 +201,56 @@ def make_a_guess():
 
     if guess == one:
         result[0] = one 
-        guess_num += 1  
+        good_guess_num += 1  
         letter_found = True
 
     if guess == two :
         result[1] = two
-        guess_num += 1 
+        good_guess_num += 1 
         letter_found = True 
 
     if guess == three :
         result[2] = three  
-        guess_num += 1   
+        good_guess_num += 1   
         letter_found = True
 
     if guess == four :
         result[3] = four
-        guess_num += 1  
+        good_guess_num += 1  
         letter_found = True
 
     if guess == five:
         result[4] = five
-        guess_num += 1  
+        good_guess_num += 1  
         letter_found = True
 
     if guess == six:
         result[5] = six
-        guess_num += 1  
+        good_guess_num += 1  
         letter_found = True
 
     
     if guess == seven:
         result[6] = seven
-        guess_num += 1  
+        good_guess_num += 1  
         letter_found = True
 
     
     if guess == eight:
         result[7] = eight
-        guess_num += 1  
+        good_guess_num += 1  
         letter_found = True
 
         
     if guess == nine:
         result[8] = nine
-        guess_num += 1  
+        good_guess_num += 1  
         letter_found = True
 
         
     if guess == ten:
         result[9] = ten
-        guess_num += 1  
+        good_guess_num += 1  
         letter_found = True
 
     if letter_found == False:
@@ -257,8 +263,8 @@ def make_a_guess():
 
 
 #--------------------------------------------------------------------
+# Mainline logic
 #--------------------------------------------------------------------
-
 
 
 print('Welcome to Hang Man!')
@@ -266,15 +272,21 @@ print('Welcome to Hang Man!')
 while True:
 
     
-    if guess_num == 0:
+    if firstTime == True:
+        
+        firstTime = False
+
         # Choose a word... 
         myList = ["APPLE", "PEACH", "PEAR", "PLUM", "BANANA", "ORANGE"]
-        returnedWord = (random.choice(myList))
-        word = str(returnedWord)
-        wordLength = len(word)
+        randomWord = (random.choice(myList))
+        word = str(randomWord)
+        # wordLength = len(word)
         
+
         wordList = [letter for letter in word]
 
+        # Display the number of characters in the word on the screen
+        wordLength = len(word)
         if wordLength == 4:
             one, two, three, four = wordList
             result = [' ',' ', ' ', ' ']
@@ -303,14 +315,14 @@ while True:
     display_man(bad_guess_num)
      
     
-    if wordLength == guess_num:
+    if wordLength == good_guess_num:
         print("You Win!")
         break
                    
             
     if  bad_guess_num >= 6:
         print("        Stretch his neck boys!")
-        print(f'The word was: {returnedWord}')
+        print(f'The word was: {randomWord}')
         break
           
             
