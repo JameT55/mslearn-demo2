@@ -14,26 +14,27 @@ import random
 # Working Storage
 #-----------------------------
 firstTime = bool(True)
-myList = list()
+wordList = str()
 good_guess_num = int(0)
 bad_guess_num = int(0)
-wordLength = int()
-randomWord = ' '
-word = list()
-result = list()
 letter_found = bool()
+wordLength = int()
+randomWord = str()
+randomPhrase = str()
+result = list()
+trashTalkList = list()
 
 
-one = str(' ')
-two = str(' ')
-three = str(' ')
-four = str(' ')
-five = str(' ')
-six = str(' ')
-seven = str(' ')
-eight = str(' ')
-nine = str(' ')
-ten = str(' ')
+one = str()
+two = str()
+three = str()
+four = str()
+five = str()
+six = str()
+seven = str()
+eight = str()
+nine = str()
+ten = str()
 
 
 
@@ -260,6 +261,9 @@ def make_a_guess():
     print(result)
     return
 
+#---------------------------------------
+# Function: Make a Guess
+#---------------------------------------
 
 
 #--------------------------------------------------------------------
@@ -276,37 +280,38 @@ while True:
         
         firstTime = False
 
-        # Choose a word... 
-        myList = ["APPLE", "PEACH", "PEAR", "PLUM", "BANANA", "ORANGE"]
-        randomWord = (random.choice(myList))
-        word = str(randomWord)
-        # wordLength = len(word)
+        trashTalkList = ["Stretch his neck boys!", "Necktie party time!!", "Watch him jump!", "You should have chosen another letter", "You will pay for that!!"]
+        randomPhrase = (random.choice(trashTalkList))
+        
+                # Choose a word... 
+        wordList = ["APPLE", "PEACH", "PEAR", "PLUM", "BANANA", "ORANGE", "TANGERINE"]
+        randomWord = (random.choice(wordList))
         
 
-        wordList = [letter for letter in word]
+        word = [letter for letter in randomWord]
 
         # Display the number of characters in the word on the screen
-        wordLength = len(word)
+        wordLength = len(randomWord)
         if wordLength == 4:
-            one, two, three, four = wordList
+            one, two, three, four = word
             result = [' ',' ', ' ', ' ']
         if wordLength == 5:
-            one, two, three, four, five = wordList
+            one, two, three, four, five = word
             result = [' ',' ', ' ', ' ', ' ']
         if wordLength == 6:
-            one, two, three, four, five, six = wordList
+            one, two, three, four, five, six = word
             result = [' ',' ', ' ', ' ', ' ', ' ']
         if wordLength == 7:
-            one, two, three, four, five, six, seven = wordList
+            one, two, three, four, five, six, seven = word
             result = [' ',' ', ' ', ' ', ' ', ' ', ' ']
         if wordLength == 8:
-            one, two, three, four, five, six, seven, eight = wordList
+            one, two, three, four, five, six, seven, eight = word
             result = [' ',' ', ' ', ' ', ' ', ' ', ' ', ' ']    
         if wordLength == 9:
-            one, two, three, four, five, six, seven, eight, nine = wordList
+            one, two, three, four, five, six, seven, eight, nine = word
             result = [' ',' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '] 
         if wordLength == 10:
-            one, two, three, four, five, six, seven, eight, nine, ten = wordList
+            one, two, three, four, five, six, seven, eight, nine, ten = word
             result = [' ',' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '] 
 
         display_man(bad_guess_num)
@@ -321,7 +326,7 @@ while True:
                    
             
     if  bad_guess_num >= 6:
-        print("        Stretch his neck boys!")
+        print(randomPhrase)
         print(f'The word was: {randomWord}')
         break
           
