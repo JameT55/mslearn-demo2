@@ -14,10 +14,10 @@ import random
 # Working Storage
 #-----------------------------
 firstTime = bool(True)
-wordList = str()
 good_guess_num = int(0)
 bad_guess_num = int(0)
 letter_found = bool()
+wordList = str()
 wordLength = int()
 randomWord = str()
 randomPhrase = str()
