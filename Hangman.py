@@ -95,7 +95,7 @@ def display_man(bad_guess_num):
         print('|       |(- 0)|')
         print('|       |  =  |')
         print('|        -----')
-        print('|        /   \ ')
+        print('|        /   \\ ')
         print('|        |   |')
         print('|        |   |')
         print('|        -----')
@@ -114,7 +114,7 @@ def display_man(bad_guess_num):
         print('|       |(0 0)|')
         print('|       |  =  |')
         print('|        -----')
-        print('|        /   \________')
+        print('|        /   \\________')
         print('|        |   |--------')
         print('|        |   |')
         print('|        ----- ')
@@ -134,7 +134,7 @@ def display_man(bad_guess_num):
         print('|       |(0 0)|')
         print('|       |  =  |')
         print('|        -----')
-        print('|  ______/   \________')
+        print('|  ______/   \\________')
         print('|  ------|   |--------')
         print('|        |   |')
         print('|        -----  ')
@@ -154,12 +154,12 @@ def display_man(bad_guess_num):
         print('|       |(O O)|')
         print('|       |  O  |')
         print('|        -----')
-        print('|  ______/   \________')
+        print('|  ______/   \\________')
         print('|  ------|   |--------')
         print('|        |   |')
-        print('|        ---\ \         ')
-        print('|            \ \     ')
-        print('|             \ \__       ')
+        print('|        ---\\ \\        ')
+        print('|            \\ \\    ')
+        print('|             \\ \\_       ')
         print('|              |___|')
         print('----------------------')
         print('|                    |')
@@ -171,15 +171,15 @@ def display_man(bad_guess_num):
         print('|          |')
         print('|          |')
         print('|        --|--')
-        print('|       |(X X)|')
+        print(f'|       |(X X)|          {randomPhrase}')
         print('|       |  -  |')
         print('|        -----')
-        print('|  ______/   \________')
+        print('|  ______/   \\________')
         print('|  ------|   |--------')
         print('|        |   |')
-        print('|        / /\ \         ')
-        print('|       / /  \ \     ')
-        print('|    __/ /    \ \__       ')
+        print('|        / /\\ \\        ')
+        print('|       / /  \\ \\    ')
+        print('|    __/ /    \\ \\_       ')
         print('|    |___|     |___|')
         print('|')
         print('|')
@@ -261,10 +261,6 @@ def make_a_guess():
     print(result)
     return
 
-#---------------------------------------
-# Function: Make a Guess
-#---------------------------------------
-
 
 #--------------------------------------------------------------------
 # Mainline logic
@@ -326,7 +322,6 @@ while True:
                    
             
     if  bad_guess_num >= 6:
-        print(randomPhrase)
         print(f'The word was: {randomWord}')
         break
           
