@@ -276,7 +276,8 @@ while True:
         
         firstTime = False
 
-        trashTalkList = ["Stretch his neck boys!", "Necktie party time!!", "Watch him jump!", "You should have chosen another letter", "You will pay for that!!"]
+        trashTalkList = ["Stretch his neck boys!", "Necktie party time!!", "Watch him jump!", "You should have chosen another letter", 
+                         "You will pay for that!!", "Try again"]
         randomPhrase = (random.choice(trashTalkList))
         
                 # Choose a word... 
