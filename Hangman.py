@@ -45,8 +45,8 @@ ten = str()
 def display_man(bad_guess_num):
     
     if bad_guess_num == 0:
-        print('-----------------')
-        print('-----------------')
+        print('------------------')
+        print('------------------')
         print('|          |')
         print('|          |')
         print('|')
