@@ -132,7 +132,7 @@ def display_man(bad_guess_num):
         print('|          |')
         print('|        --|--')
         print('|       |(0 0)|')
-        print('|       |  =  |')
+        print('|       | === |')
         print('|        -----')
         print('|  ______/   \\________')
         print('|  ------|   |--------')
